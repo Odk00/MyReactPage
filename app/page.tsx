@@ -1,113 +1,151 @@
-import Image from 'next/image'
+import { NavigationItem } from "./navi";
+import { Button } from "@mui/material";
+import BackgroundPicture from "./background.jpg";
+import { Review } from "./review.tsx";
+
+const EmailInput = ({}) => {
+  return (
+    <div>
+      <input style={EmailStyle} placeholder={"Email"} />
+    </div>
+  );
+};
+const EmailStyle = {
+  border: "1px solid black",
+  height: "56px",
+  width: "317px",
+  fontSize: "16px",
+  fontFamily: "Mulish",
+};
+const TitleAndDescription = ({ h2label, h1label }) => {
+  return (
+    <div>
+      <h1 style={H1style}>{h1label}</h1>
+      <h2 style={H2style}>{h2label}</h2>
+    </div>
+  );
+};
+
+const H1style = {
+  height: "120px",
+  width: "514px",
+  fontFamily: "Work Sans",
+  weight: "400",
+  size: "48px",
+  color: "white",
+};
+const H2style = {
+  height: "58px",
+  width: "323.85px",
+  fontFamily: "Mulish",
+  size: "18px",
+  weight: "700",
+  color: "white",
+};
+
+const Logo = ({}) => {
+  return (
+    <div>
+      <svg
+        width="87"
+        height="56"
+        viewBox="0 0 87 56"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.97 44.33C6.99 44.33 5.5 43.84 4.5 42.86C3.5 41.86 3 40.37 3 38.39V32.18H0.12V28.79H3V25.07L7.53 23.96V28.79H11.43V32.18H7.53V38.15C7.53 39.11 7.73 39.77 8.13 40.13C8.53 40.49 9.04 40.67 9.66 40.67C10.04 40.67 10.35 40.65 10.59 40.61C10.85 40.55 11.12 40.47 11.4 40.37V43.88C11.02 44.04 10.62 44.15 10.2 44.21C9.78 44.29 9.37 44.33 8.97 44.33ZM21.258 44.33C18.618 44.33 16.558 43.62 15.078 42.2C13.598 40.78 12.858 38.85 12.858 36.41C12.858 34.83 13.168 33.45 13.788 32.27C14.428 31.09 15.308 30.17 16.428 29.51C17.568 28.83 18.898 28.49 20.418 28.49C21.918 28.49 23.168 28.81 24.168 29.45C25.188 30.09 25.948 30.99 26.448 32.15C26.968 33.29 27.228 34.62 27.228 36.14V37.19H16.578V34.94H23.928L23.418 35.36C23.418 34.1 23.158 33.15 22.638 32.51C22.138 31.85 21.408 31.52 20.448 31.52C19.388 31.52 18.568 31.91 17.988 32.69C17.428 33.47 17.148 34.59 17.148 36.05V36.53C17.148 38.01 17.508 39.11 18.228 39.83C18.968 40.55 20.028 40.91 21.408 40.91C22.228 40.91 22.998 40.81 23.718 40.61C24.458 40.39 25.158 40.05 25.818 39.59L27.078 42.59C26.318 43.15 25.438 43.58 24.438 43.88C23.458 44.18 22.398 44.33 21.258 44.33ZM36.0122 44.33C34.6922 44.33 33.5322 44.01 32.5322 43.37C31.5322 42.73 30.7522 41.82 30.1922 40.64C29.6322 39.46 29.3522 38.04 29.3522 36.38C29.3522 34.74 29.6322 33.33 30.1922 32.15C30.7522 30.97 31.5322 30.07 32.5322 29.45C33.5322 28.81 34.6922 28.49 36.0122 28.49C37.2322 28.49 38.3222 28.79 39.2822 29.39C40.2622 29.97 40.9022 30.76 41.2022 31.76H40.8722L41.2322 28.79H45.5822C45.5222 29.45 45.4622 30.12 45.4022 30.8C45.3622 31.46 45.3422 32.11 45.3422 32.75V44H40.8422L40.8122 41.15H41.1722C40.8522 42.11 40.2122 42.88 39.2522 43.46C38.2922 44.04 37.2122 44.33 36.0122 44.33ZM37.3922 40.91C38.4322 40.91 39.2722 40.54 39.9122 39.8C40.5522 39.06 40.8722 37.92 40.8722 36.38C40.8722 34.84 40.5522 33.71 39.9122 32.99C39.2722 32.27 38.4322 31.91 37.3922 31.91C36.3522 31.91 35.5122 32.27 34.8722 32.99C34.2322 33.71 33.9122 34.84 33.9122 36.38C33.9122 37.92 34.2222 39.06 34.8422 39.8C35.4822 40.54 36.3322 40.91 37.3922 40.91ZM49.0573 44V32.75C49.0573 32.11 49.0373 31.46 48.9973 30.8C48.9573 30.12 48.8973 29.45 48.8173 28.79H53.1673L53.4973 31.61H53.1373C53.5773 30.65 54.2273 29.89 55.0873 29.33C55.9473 28.77 56.9673 28.49 58.1473 28.49C59.3073 28.49 60.2773 28.77 61.0573 29.33C61.8573 29.87 62.4273 30.72 62.7673 31.88H62.2873C62.7273 30.84 63.4273 30.02 64.3873 29.42C65.3473 28.8 66.4373 28.49 67.6573 28.49C69.3773 28.49 70.6573 29 71.4973 30.02C72.3373 31.04 72.7573 32.64 72.7573 34.82V44H68.2273V34.97C68.2273 33.91 68.0573 33.15 67.7173 32.69C67.3773 32.23 66.8273 32 66.0673 32C65.1673 32 64.4573 32.32 63.9373 32.96C63.4173 33.6 63.1573 34.48 63.1573 35.6V44H58.6273V34.97C58.6273 33.91 58.4573 33.15 58.1173 32.69C57.7773 32.23 57.2273 32 56.4673 32C55.5673 32 54.8573 32.32 54.3373 32.96C53.8373 33.6 53.5873 34.48 53.5873 35.6V44H49.0573Z"
+          fill="white"
+        />
+        <path d="M76.8833 44V36.32H84.6593V44H76.8833Z" fill="#0BBEF2" />
+      </svg>
+    </div>
+  );
+};
+
+const StarBox = ({}) => {};
 
 export default function Home() {
+  const array = [1, 2, 3, 4];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+          backgroundImage: `url(${BackgroundPicture.src})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          fontFamily: "Mulish",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            justifyContent: "space-between",
+            paddingLeft: "50px",
+            paddingRight: "50px",
+            paddingTop: "20px",
+          }}
+        >
+          <Logo />
+          <main style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <NavigationItem href="/products">Products</NavigationItem>
+            <NavigationItem href="/products">Services</NavigationItem>
+            <NavigationItem href="/products">Contact</NavigationItem>
+            <NavigationItem href="/products">Log In</NavigationItem>
+            <Button> Hello </Button>
+          </main>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            paddingLeft: "50px",
+            justifyContent: "flex-start",
+            alignItems: "baseline",
+          }}
+        >
+          <TitleAndDescription
+            h1label="Instant collaborations for remote teams"
+            h2label=" All in one for your remote team chats, collaboration and track projects"
+          />
+        </div>
+        <div style={{ display: "flex", gap: "20px", padding: "50px" }}>
+          <EmailInput />
+          <Button
+            style={{
+              paddingTop: "15px",
+              paddingBottom: "15px",
+              paddingLeft: "19px",
+              paddingRight: "19px",
+              border: "1px solid #000000",
+              borderRadius: "4px",
+              fontSize: "16px",
+              fontWeight: "700px",
+              fontFamily: "Mulish",
+              textAlign: "center",
+              color: " #FFFFFF",
+
+              background: "#0BBEF2",
+            }}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Get early access
+          </Button>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <div style={{ backgroundColor: "black" }}>
+        <TitleAndDescription
+          h1label="Your Hub for teamwork"
+          h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <Review starcount={1} />
+        <Review starcount={5} />
+        <Review starcount={10} />
       </div>
-    </main>
-  )
+    </div>
+  );
 }
