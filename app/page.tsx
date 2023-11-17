@@ -127,7 +127,6 @@ export default function Home() {
               fontFamily: "Mulish",
               textAlign: "center",
               color: " #FFFFFF",
-
               background: "#0BBEF2",
             }}
           >
