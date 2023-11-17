@@ -1,14 +1,4 @@
-#section {
-  display: flex;
-  flex-direction: row;
-}
-#blue {
-  background-color: blue;
-  width: 1000px;
-  height: 1000px;
-}
-#red {
-  height: 1000px;
-  width: 1000px;
-  background-color: red;
+* {
+  margin: 0;
+  font-family: "Mulish", sans-serif;
 }

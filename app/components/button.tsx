@@ -6,7 +6,6 @@ export const Button = ({ text, type }) => {
       </div>
     );
   }
-  
 
   return (
     <div>
@@ -15,19 +14,18 @@ export const Button = ({ text, type }) => {
   );
 };
 const ButtonStyle1 = {
-    paddingTop: "16px",
-    paddingBottom: "16px",
-    paddingLeft: "19px",
-    paddingRight: "19px",
-    border: "1px solid #000000",
-    borderRadius: "4px",
-    size: "16px",
-    weight: "700px",
-    fontFamily: "Mulish",
-    align: "center",
-    color: " #FFFFFF",
-    opacity: "52%",
-  };
+  paddingTop: "16px",
+  paddingBottom: "16px",
+  paddingLeft: "19px",
+  paddingRight: "19px",
+  border: "1px solid #000000",
+  borderRadius: "4px",
+  size: "16px",
+  weight: "700px",
+  align: "center",
+  color: " #FFFFFF",
+  opacity: "52%",
+};
 const ButtonStyle = {
   paddingTop: "22px",
   paddingBottom: "22px",
@@ -37,9 +35,7 @@ const ButtonStyle = {
   borderRadius: "4px",
   size: "16px",
   weight: "700px",
-  fontFamily: "Mulish",
   align: "center",
   color: " #FFFFFF",
-
   background: "#0BBEF2",
 };
