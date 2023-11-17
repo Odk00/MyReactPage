@@ -3,43 +3,9 @@ import BackgroundPicture from "../public/background.jpg";
 import { Review } from "./review";
 import { NavigationItem } from "./components/navigation-item";
 import { Logo } from "./components/logo";
+import { TitleAndDescription } from "./components/titleanddescription";
+import { EmailInput } from "./components/EmailInput";
 
-const EmailInput = ({}) => {
-  return (
-    <div>
-      <input style={EmailStyle} placeholder={"Email"} />
-    </div>
-  );
-};
-const EmailStyle = {
-  border: "1px solid black",
-  height: "56px",
-  width: "317px",
-  fontSize: "16px",
-};
-const TitleAndDescription = ({ h2label, h1label }) => {
-  return (
-    <div>
-      <h1 style={H1style}>{h1label}</h1>
-      <h2 style={H2style}>{h2label}</h2>
-    </div>
-  );
-};
-
-const H1style = {
-  height: "120px",
-  width: "514px",
-  weight: "400",
-  size: "48px",
-  color: "white",
-};
-const H2style = {
-  height: "58px",
-  width: "323.85px",
-  size: "18px",
-  weight: "700",
-  color: "white",
-};
 
 export default function Home() {
   const array = [1, 2, 3, 4];
@@ -70,7 +36,23 @@ export default function Home() {
             <NavigationItem href="/products">Services</NavigationItem>
             <NavigationItem href="/products">Contact</NavigationItem>
             <NavigationItem href="/products">Log In</NavigationItem>
-            <Button> Hello </Button>
+            <Button
+              style={{
+                paddingTop: "16px",
+                paddingBottom: "16px",
+                paddingLeft: "19px",
+                paddingRight: "19px",
+                border: "1px solid #000000",
+                borderRadius: "4px",
+                fontSize: "16px",
+                fontWeight: "700px",
+                textAlign: "center",
+                color: " #FFFFFF",
+                opacity: "52%",
+              }}
+            >
+              Get access
+            </Button>
           </main>
         </div>
         <div
@@ -87,12 +69,19 @@ export default function Home() {
             h2label=" All in one for your remote team chats, collaboration and track projects"
           />
         </div>
-        <div style={{ display: "flex", gap: "20px", padding: "50px" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            padding: "50px",
+            marginTop: "50px",
+          }}
+        >
           <EmailInput />
           <Button
             style={{
-              paddingTop: "15px",
-              paddingBottom: "15px",
+              // paddingTop: "5px",
+              // paddingBottom: "5px",
               paddingLeft: "19px",
               paddingRight: "19px",
               border: "1px solid #000000",
@@ -108,11 +97,14 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      <div>
       <div style={{ backgroundColor: "black" }}>
         <TitleAndDescription
           h1label="Your Hub for teamwork"
           h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
         />
+      </div>
+      
       </div>
       <div style={{ display: "flex", gap: "10px" }}>
         <Review starcount={1} />
