@@ -1,1 +1,0 @@
-<Image src="../public/meeting.png" />

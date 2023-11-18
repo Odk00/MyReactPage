@@ -3,23 +3,24 @@ import BackgroundPicture from "../public/background.jpg";
 import { Review } from "./review";
 import { NavigationItem } from "./components/navigation-item";
 import { Logo } from "./components/logo";
-import { TitleAndDescription } from "./components/titleanddescription";
-import { EmailInput } from "./components/EmailInput";
-
+import { TitleAndDescription } from "./components/title-and-description";
+import { EmailInput } from "./components/email-input";
+import Image from "next/image";
+import { LearnMore } from "./components/learn-more";
 
 export default function Home() {
   const array = [1, 2, 3, 4];
   return (
-    <div>
-      <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          backgroundImage: `url(${BackgroundPicture.src})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        backgroundImage: `url(${BackgroundPicture.src})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div style={{ paddingLeft: "139px", paddingTop: "24px" }}>
         <div
           style={{
             display: "flex",
@@ -62,6 +63,7 @@ export default function Home() {
             paddingLeft: "50px",
             justifyContent: "flex-start",
             alignItems: "baseline",
+            marginTop: "258px",
           }}
         >
           <TitleAndDescription
@@ -80,8 +82,6 @@ export default function Home() {
           <EmailInput />
           <Button
             style={{
-              // paddingTop: "5px",
-              // paddingBottom: "5px",
               paddingLeft: "19px",
               paddingRight: "19px",
               border: "1px solid #000000",
@@ -97,19 +97,98 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      <div
+        style={{
+          display: "flex",
+          backgroundColor: " #F5F7FA",
+          justifyContent: "space-between",
+          paddingLeft: "139px",
+          paddingTop: "342px",
+        }}
+      >
+        <div style={{ color: "black", paddingLeft: "50px" }}>
+          <TitleAndDescription
+            h1label="Your Hub for teamwork"
+            h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
+          />
+        </div>
+        <div>
+          <LearnMore />
+        </div>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Image
+            src="/meeting.png"
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
+        </div>
+      </div>
       <div>
-      <div style={{ backgroundColor: "black" }}>
-        <TitleAndDescription
-          h1label="Your Hub for teamwork"
-          h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
-        />
-      </div>
-      
-      </div>
-      <div style={{ display: "flex", gap: "10px" }}>
-        <Review starcount={1} />
-        <Review starcount={5} />
-        <Review starcount={10} />
+        <div
+          style={{
+            color: "black",
+            paddingLeft: "50px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div>
+            <Image
+              src="/second-pic.svg"
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+          </div>
+          <div style={{ paddingRight: "275px" }}>
+            <TitleAndDescription
+              h1label="Simple task management"
+              h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
+            />
+          </div>
+        </div>
+
+        <div
+          style={{
+            color: "black",
+            paddingLeft: "50px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <TitleAndDescription
+            h1label="Scheduling that actually works"
+            h2label="Give everyone you work with—inside and outside your company—a more productive way to stay in sync. Respond faster with emoji, keep conversations focused in channels, and simplify all your communication into one place."
+          />
+          <div>
+            <Image
+              src="/third-pic.png"
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            width: "615px",
+            height: "60px",
+            fontSize: "48px",
+            fontWeight: "800",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          What people say about us
+        </div>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <Review starcount={1} />
+          <Review starcount={5} />
+          <Review starcount={10} />
+        </div>
       </div>
     </div>
   );
