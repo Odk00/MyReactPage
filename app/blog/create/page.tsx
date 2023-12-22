@@ -2,21 +2,28 @@
 import { Button } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
-
 import { getFirestore } from "firebase/firestore";
-
 import { firebaseApp } from "@/app/firebase";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { log } from "console";
 
-export default () => {
+const Page = () => {
   const [name, setName] = useState("");
   const [hometown, setHometown] = useState("");
   const [hobby, setHobby] = useState("");
   const [favoriteColor, setFavoriteColor] = useState("");
   const db = getFirestore(firebaseApp);
   const storage = getStorage(firebaseApp);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState<File>();
+  const [avatar, setAvatar] = useState<File>();
+  const handleSaveImageFunction = async () => {
+    const storageRef = ref(storage, image?.name);
+    const avatarRef = ref(storage, avatar?.name);
+    await uploadBytes(storageRef, image as Blob);
+    await uploadBytes(avatarRef, avatar as Blob);
+    const URL = await getDownloadURL(storageRef);
+    const avatarURL = await getDownloadURL(avatarRef);
+    console.log(URL, avatarURL);
+  };
   return (
     <main>
       <h1> 12/04/2023</h1>
@@ -52,16 +59,6 @@ export default () => {
             setFavoriteColor(e.target.value);
           }}
         />
-        <Button
-          onClick={async () => {
-            const storageRef = ref(storage, image?.name);
-            await uploadBytes(storageRef, image);
-            const URL = await getDownloadURL(storageRef);
-            console.log(URL);
-          }}
-        >
-          Save Image
-        </Button>
         <input
           type="file"
           onChange={(e) => {
@@ -71,9 +68,10 @@ export default () => {
         <input
           type="file"
           onChange={(e) => {
-            setImage(e.target.files[0]);
+            setAvatar(e.target.files[0]);
           }}
         />
+        <Button onClick={handleSaveImageFunction}>Save Image</Button>
         <Button
           onClick={async () => {
             await addDoc(collection(db, "blog"), {
@@ -90,3 +88,5 @@ export default () => {
     </main>
   );
 };
+
+export default Page;
