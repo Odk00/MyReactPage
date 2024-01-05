@@ -5,7 +5,7 @@ import { Logo } from "./logo";
 import { TitleAndDescription } from "./title-and-description";
 import { EmailInput } from "./email-input";
 
-export const FirstSection = ({}) => {
+export const FirstSection = () => {
   return (
     <div
       style={{
