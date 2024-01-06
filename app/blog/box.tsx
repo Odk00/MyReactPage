@@ -20,7 +20,7 @@ export const Box = ({ image, title, description, avatar, name, date }) => {
         }}
       >
         <h1>{title}</h1>
-        <p style={{ paddingTop: "25px", paddingBottom: "57px" }}>
+        <p style={{ paddingTop: "25px", paddingBottom: "25px" }}>
           {description}
         </p>
         <div
@@ -28,6 +28,7 @@ export const Box = ({ image, title, description, avatar, name, date }) => {
             display: "flex",
             gap: "10px",
             alignItems: "center",
+            marginBottom:"100px",
           }}
         >
           <img

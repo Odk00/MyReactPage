@@ -30,7 +30,7 @@ const Page = () => {
       date: date,
       image: URL,
       avatar: avatarURL,
-    })
+    });
   };
   return (
     <main>
@@ -69,12 +69,14 @@ const Page = () => {
           }}
         />
         <input
+           width="45px"
           placeholder={"name"}
           onChange={(e) => {
             setName(e.target.value);
           }}
         />
         <input
+      
           type="file"
           onChange={(e) => {
             setAvatar(e.target.files[0]);
